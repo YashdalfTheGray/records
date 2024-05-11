@@ -1,0 +1,8 @@
+[package]
+name = "record_keeper"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dotenv = "0.15.0"
+rocket = { version = "0.5", features = ["secrets", "tls", "json", "uuid"] }
