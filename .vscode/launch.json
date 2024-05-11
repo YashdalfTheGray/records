@@ -1,0 +1,20 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch front",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:8443",
+      "webRoot": "${workspaceFolder}/front"
+    },
+    {
+      "name": "Debug back",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/back/target/debug/record_keeper",
+      "args": [],
+      "cwd": "${workspaceFolder}/back"
+    }
+  ]
+}
