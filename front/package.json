@@ -1,0 +1,35 @@
+{
+  "name": "keeper-of-the-records",
+  "version": "1.0.0",
+  "description": "Keeps records, innit",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YashdalfTheGray/records.git"
+  },
+  "keywords": [
+    "records",
+    "preact",
+    "rocket"
+  ],
+  "author": "Yash Kulshrestha",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/YashdalfTheGray/records/issues"
+  },
+  "homepage": "https://github.com/YashdalfTheGray/records#readme",
+  "dependencies": {
+    "preact": "^10.21.0",
+    "preact-router": "^4.1.2",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.8.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11"
+  }
+}
