@@ -6,3 +6,5 @@ edition = "2021"
 [dependencies]
 dotenv = "0.15.0"
 rocket = { version = "0.5", features = ["secrets", "tls", "json", "uuid"] }
+rocket_cors = { version = "0.6.0" }
+serde = { version = "1.0", features = ["derive"] }
