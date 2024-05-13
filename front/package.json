@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Keeps records, innit",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "ava"
+    "start": "npm run dev",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
   },
   "repository": {
     "type": "git",

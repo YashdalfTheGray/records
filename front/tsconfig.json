@@ -3,10 +3,12 @@
     "target": "ES6",
     "module": "ESNext",
     "jsx": "react-jsx",
+    "jsxImportSource": "preact",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["preact"]
   }
 }
