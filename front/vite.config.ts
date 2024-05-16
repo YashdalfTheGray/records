@@ -11,6 +11,9 @@ export default defineConfig({
       '/api': 'http://localhost:8000',
     },
   },
+  build: {
+    outDir: '../back/record_keeper/dist',
+  },
   resolve: {
     alias: {
       'react-dom/test-utils': 'preact/test-utils',
