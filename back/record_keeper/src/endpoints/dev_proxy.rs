@@ -1,7 +1,6 @@
 use rocket::http::uri::Absolute;
 use rocket::response::Redirect;
 use rocket::State;
-use std::env;
 
 use crate::models::app_config::AppConfig;
 

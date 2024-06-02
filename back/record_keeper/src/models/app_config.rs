@@ -1,3 +1,3 @@
 pub struct AppConfig {
-    pub vite_dev_server: String,
+    pub vite_dev_server: &'static str,
 }
