@@ -20,9 +20,12 @@ fn is_dev() -> bool {
 
 #[launch]
 fn rocket() -> _ {
-    let vite_dev_server =
-        env::var("vite_dev_server").unwrap_or_else(|_| "http://localhost:3000".into());
-    let appConfig = AppConfig { vite_dev_server };
+    // let vite_dev_server: &'static str =
+    // env::var("vite_dev_server").unwrap_or_else(|_| "http://localhost:3000".into());
+    let vite_dev_server: &'static str = "http://localhost:3000";
+    let app_config = AppConfig {
+        vite_dev_server: &vite_dev_server,
+    };
 
     let cors = CorsOptions {
         allowed_origins: AllowedOrigins::all(),
@@ -32,7 +35,7 @@ fn rocket() -> _ {
     .to_cors()
     .unwrap();
 
-    let mut rocket = rocket::build().attach(cors).manage(appConfig);
+    let mut rocket = rocket::build().attach(cors).manage(app_config);
 
     rocket = rocket.mount("/api", routes![health::health_check]);
 
