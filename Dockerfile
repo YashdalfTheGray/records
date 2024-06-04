@@ -1,4 +1,4 @@
-# Stage 1: Build the frontend
+# build the frontend
 FROM node:lts AS frontbuild
 
 WORKDIR /app/front
@@ -9,7 +9,7 @@ COPY front/ ./
 RUN npm run build
 
 
-# Stage 2: Build the backend
+# build the backend
 FROM rust:latest AS backbuild
 
 WORKDIR /app/back
@@ -19,8 +19,8 @@ COPY back/ ./
 
 RUN cargo build --release
 
-# Final stage: Serve the application
-FROM debian:buster-slim
+# Serve the application
+FROM debian:latest
 
 WORKDIR /app
 RUN apt-get update && apt-get install -y libssl1.1 ca-certificates && rm -rf /var/lib/apt/lists/*
