@@ -1,5 +1,5 @@
 # Stage 1: Build the frontend
-FROM node:16 AS frontbuild
+FROM node:lts AS frontbuild
 
 WORKDIR /app/front
 COPY front/package.json front/package-lock.json ./
@@ -10,7 +10,7 @@ RUN npm run build
 
 
 # Stage 2: Build the backend
-FROM rust:1.59 AS backbuild
+FROM rust:latest AS backbuild
 
 WORKDIR /app/back
 RUN apt-get update && apt-get install -y libssl-dev pkg-config
