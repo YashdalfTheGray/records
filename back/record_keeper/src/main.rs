@@ -1,6 +1,7 @@
 #[macro_use]
 extern crate rocket;
 
+use dotenv::dotenv;
 use rocket::fs::FileServer;
 use rocket_cors::{AllowedOrigins, CorsOptions};
 use std::env;
@@ -20,9 +21,11 @@ fn is_dev() -> bool {
 
 #[launch]
 fn rocket() -> _ {
+    dotenv().ok();
+    // TODO still need to resolve this but we're moving on
     // let vite_dev_server: &'static str =
-    // env::var("vite_dev_server").unwrap_or_else(|_| "http://localhost:3000".into());
-    let vite_dev_server: &'static str = "http://localhost:3000";
+    // env::var("vite_dev_server").unwrap_or_else(|_| "http://localhost:5173".into());
+    let vite_dev_server: &'static str = "http://localhost:5173";
     let app_config = AppConfig {
         vite_dev_server: &vite_dev_server,
     };
