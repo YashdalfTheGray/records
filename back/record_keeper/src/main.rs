@@ -8,6 +8,7 @@ use std::env;
 use utils::spotify_creds::{get_spotify_client_id, get_spotify_client_secret};
 
 mod endpoints;
+mod errors;
 mod models;
 mod utils;
 
