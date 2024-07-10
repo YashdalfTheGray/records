@@ -2,7 +2,7 @@
 extern crate rocket;
 
 use dotenv::dotenv;
-use rocket::fs::FileServer;
+use rocket::{fs::FileServer, shield::Shield};
 use rocket_cors::{AllowedOrigins, CorsOptions};
 use std::env;
 use utils::spotify_creds::{get_spotify_client_id, get_spotify_client_secret};
@@ -12,7 +12,7 @@ mod errors;
 mod models;
 mod utils;
 
-use endpoints::{dev_proxy, health};
+use endpoints::{dev_proxy, get_album, health};
 use models::app_config::AppConfig;
 
 fn is_dev() -> bool {
@@ -31,12 +31,8 @@ fn rocket() -> _ {
     get_spotify_client_id();
     get_spotify_client_secret();
 
-    // TODO still need to resolve this but we're moving on
-    // let vite_dev_server: &'static str =
-    // env::var("vite_dev_server").unwrap_or_else(|_| "http://localhost:5173".into());
-    let vite_dev_server: &'static str = "http://localhost:5173";
     let app_config = AppConfig {
-        vite_dev_server: &vite_dev_server,
+        vite_dev_server_port: &5173,
         spotify_auth_endpoint: "https://accounts.spotify.com/api/token",
         spotify_api_endpoint: "https://api.spotify.com/v1",
     };
@@ -49,9 +45,15 @@ fn rocket() -> _ {
     .to_cors()
     .unwrap();
 
-    let mut rocket = rocket::build().attach(cors).manage(app_config);
+    let mut rocket = rocket::build()
+        .attach(cors)
+        .attach(Shield::new())
+        .manage(app_config);
 
-    rocket = rocket.mount("/api", routes![health::health_check]);
+    rocket = rocket.mount(
+        "/api",
+        routes![health::health_check, get_album::get_album_details],
+    );
 
     if is_dev() {
         rocket = rocket.mount("/", routes![dev_proxy::vite_proxy]);
