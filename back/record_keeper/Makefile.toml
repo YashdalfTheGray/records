@@ -1,0 +1,24 @@
+[tasks.start_remote_proxy]
+description = "Launch NGINX container to proxy requests"
+command = "docker"
+args = [
+  "run",
+  "--rm",
+  "-d",
+  "-p",
+  "8080:8000",
+  "--name",
+  "remote-nginx-proxy",
+  "nginx",
+  "sh",
+  "-c",
+  "echo 'server { listen 0.0.0.0:8080; location / { proxy_pass http://localhost:8000; } }' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'",
+]
+
+[tasks.stop_remote_proxy]
+description = "Find and stop the remote proxy container"
+command = "sh"
+args = [
+  "-c",
+  "docker ps -q --filter 'name=remote-nginx-proxy' | grep -q . && docker stop remote-nginx-proxy || echo 'Container not running'",
+]
