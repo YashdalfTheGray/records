@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "npm run dev",
-    "dev": "vite --debug --host 0.0.0.0",
+    "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "serve": "vite preview"
   },
@@ -26,18 +26,18 @@
   },
   "homepage": "https://github.com/YashdalfTheGray/records#readme",
   "dependencies": {
-    "@emotion/react": "^11.13.0",
+    "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^5.16.7",
-    "@mui/material": "^5.16.6",
-    "preact": "^10.21.0",
+    "@mui/icons-material": "^6.0.2",
+    "@mui/material": "^6.0.2",
+    "preact": "^10.23.2",
     "preact-router": "^4.1.2"
   },
   "devDependencies": {
-    "@preact/preset-vite": "^2.8.2",
-    "prettier": "^3.2.5",
+    "@preact/preset-vite": "^2.9.0",
+    "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "vite": "^5.2.11"
+    "typescript": "^5.5.4",
+    "vite": "^5.4.3"
   }
 }
