@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import preact from '@preact/preset-vite';
 
 export default defineConfig({
-  plugins: [preact({ reactAliasesEnabled: false })],
+  plugins: [preact({})],
   root: 'public',
   server: {
     proxy: {
@@ -17,8 +17,6 @@ export default defineConfig({
   resolve: {
     alias: {
       'react-dom/test-utils': 'preact/test-utils',
-      'react-dom': 'preact/compat',
-      react: 'preact/compat',
       '/src': resolve(process.cwd(), 'src'),
     },
   },
