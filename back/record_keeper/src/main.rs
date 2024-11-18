@@ -17,9 +17,9 @@ use models::app_config::AppConfig;
 
 fn is_dev() -> bool {
     env::var("ROCKET_ENV")
-        .unwrap_or_else(|_| "development".into())
+        .unwrap_or_else(|_| "debug".into())
         .to_lowercase()
-        == "development".to_lowercase()
+        == "debug".to_lowercase()
 }
 
 #[launch]
