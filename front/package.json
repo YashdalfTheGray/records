@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "serve": "vite preview"
   },
   "repository": {
@@ -38,6 +38,6 @@
     "prettier": "^3.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
-    "vite": "^5.4.3"
+    "vite": "^6.1.0"
   }
 }
