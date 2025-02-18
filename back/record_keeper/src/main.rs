@@ -16,6 +16,10 @@ use endpoints::{dev_proxy, get_album, health};
 use models::app_config::AppConfig;
 
 fn is_dev() -> bool {
+    let value = env::var("ROCKET_ENV").unwrap_or_else(|_| "debug".into());
+
+    rocket::debug!("{}", value);
+
     env::var("ROCKET_ENV")
         .unwrap_or_else(|_| "debug".into())
         .to_lowercase()

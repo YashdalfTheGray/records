@@ -7,3 +7,4 @@ vite_dev_port = "5173"
 
 [release]
 address = "0.0.0.0"
+log_level = "debug"
