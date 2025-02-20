@@ -21,9 +21,9 @@ fn is_dev() -> bool {
     rocket::debug!("{}", value);
 
     env::var("ROCKET_ENV")
-        .unwrap_or_else(|_| "debug".into())
+        .unwrap_or_else(|_| "fuckyourustrocket".into())
         .to_lowercase()
-        == "debug".to_lowercase()
+        != "release".to_lowercase()
 }
 
 #[launch]
