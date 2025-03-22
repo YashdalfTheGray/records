@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [preact({})],
   root: 'public',
   server: { proxy: { '/api': 'http://localhost:8000' } },
-  build: { outDir: '../../back/record_keeper/dist' },
+  build: { outDir: '../../back/public' },
   resolve: {
     alias: {
       'react-dom/test-utils': 'preact/test-utils',
