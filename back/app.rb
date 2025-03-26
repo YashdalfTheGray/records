@@ -34,4 +34,6 @@ class App < Sinatra::Base
   options '*' do
     200
   end
+
+  use Endpoints::Health config: settings.app_config
 end
