@@ -1,3 +1,5 @@
+require_relative 'base'
+
 module Endpoints
   class Health < Endpoints::Base
     get '/api/health' do
