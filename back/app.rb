@@ -36,4 +36,5 @@ class App < Sinatra::Base
   end
 
   use Endpoints::Health config: settings.app_config
+  use Endpoints::Proxy config: settings.app_config
 end
