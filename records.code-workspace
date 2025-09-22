@@ -1,0 +1,22 @@
+{
+  "folders": [
+    {
+      "name": "records",
+      "path": "."
+    },
+    {
+      "name": "front",
+      "path": "front"
+    },
+    {
+      "name": "back",
+      "path": "back"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "front": true,
+      "back": true
+    }
+  }
+}
