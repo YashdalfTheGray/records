@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    ast (2.4.3)
     base64 (0.2.0)
     bigdecimal (3.2.3)
     domain_name (0.6.20240107)
@@ -20,6 +21,7 @@ GEM
     jwt (3.1.2)
       base64
     language_server-protocol (3.17.0.4)
+    lint_roller (1.1.0)
     logger (1.6.6)
     mime-types (3.7.0)
       logger
@@ -49,11 +51,18 @@ GEM
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
+    parallel (1.27.0)
+    parser (3.3.9.0)
+      ast (~> 2.4.1)
+      racc
     prism (1.4.0)
     public_suffix (6.0.2)
     puma (6.6.0)
       nio4r (~> 2.0)
+    racc (1.8.1)
     rack (3.1.12)
+    rack-contrib (2.5.0)
+      rack (< 4)
     rack-protection (4.1.1)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
@@ -63,8 +72,10 @@ GEM
       rack (>= 3.0.0)
     rackup (2.2.1)
       rack (>= 3)
+    rainbow (3.1.1)
     rbs (3.9.0)
       logger
+    regexp_parser (2.11.3)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -73,11 +84,26 @@ GEM
       addressable (~> 2.8.0)
       omniauth-oauth2 (>= 1.6)
       rest-client (~> 2.0.2)
+    rubocop (1.80.2)
+      json (~> 2.3)
+      language_server-protocol (~> 3.17.0.2)
+      lint_roller (~> 1.1.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 2.9.3, < 3.0)
+      rubocop-ast (>= 1.46.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 4.0)
+    rubocop-ast (1.47.0)
+      parser (>= 3.3.7.2)
+      prism (~> 1.4)
     ruby-lsp (0.23.12)
       language_server-protocol (~> 3.17.0)
       prism (>= 1.2, < 2.0)
       rbs (>= 3, < 4)
       sorbet-runtime (>= 0.5.10782)
+    ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     sinatra (4.1.1)
       logger (>= 1.6.0)
@@ -98,6 +124,9 @@ GEM
       version_gem (>= 1.1.8, < 3)
     sorbet-runtime (0.5.11952)
     tilt (2.6.0)
+    unicode-display_width (3.2.0)
+      unicode-emoji (~> 4.1)
+    unicode-emoji (4.1.0)
     uri (1.0.3)
     version_gem (1.1.9)
 
@@ -108,8 +137,10 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   puma
+  rack-contrib
   rackup
   rspotify
+  rubocop
   ruby-lsp
   sinatra
   sinatra-contrib
